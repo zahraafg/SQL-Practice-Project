@@ -1,46 +1,6 @@
-﻿USE RealCompanyDB;
+-- Analyze customers and orders: order count, total and average amounts, status, city stats, and order ranking
 
-/* 🧩 RealCompanyDB – SQL Practice Project
-
-Mövzu: Sales & Orders Analysis
-
-🎯 Tapşırıq
-
-RealCompanyDB bazasından istifadə edərək elə bir sorğu yaz ki:
-
-1️. Hər customer üçün:
-
-customer_id, full_name, country
-
-Toplam orders sayı
-
-Toplam ödəniş (total_amount sum)
-
-Orta order dəyəri
-
-CASE ilə status:
-
-Toplam ödəniş > 10000 → 'VIP'
-
-Toplam ödəniş > 5000 → 'LOYAL'
-
-Əks halda → 'NEW'
-
-2️. Hər product category üçün:
-
-category
-
-Toplam satılan quantity
-
-Toplam gəlir (quantity * unit_price)
-
-Hər category-də ən çox satılan product (ad + quantity)
-
-3️. Bonus (advanced):
-
-Window function istifadə et:
-
-Hər customer üçün rank orders by total_amount → ən böyük order 1-ci sırada*/
+USE RealCompanyDB;
 
 with CustomerStats as (
 select 
@@ -155,6 +115,7 @@ on ci.city = c.city
 left join Orders o 
 on o.customer_id = c.customer_id
 order by c.customer_id, order_rank;
+
 
 
 
