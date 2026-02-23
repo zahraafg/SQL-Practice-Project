@@ -1,26 +1,7 @@
-﻿USE RealCompanyDB;
+-- Analyze employee performance and bonuses:
+-- Calculate total and average bonuses, project count, status, and salary ranking within departments
 
-/* 🧩 RealCompanyDB – SQL Practice Project
-
-Task: Employee Performance & Bonuses
-
-🎯 Tapşırıq
-
-Hər employee üçün çıxışda olmalıdır:
-employee_id, full_name, department_name
-Employee-nin toplam bonusu (SUM(bonus_amount), NULL olsa 0 say)
-Employee-nin layihələrdə sayı (COUNT EmployeeProjects ilə)
-Employee-nin ortalama bonusu (AVG(bonus_amount))
-
-Status CASE ilə:
-SUM(bonus_amount) > 500 → 'TOP BONUS'
-SUM(bonus_amount) > 200 → 'MEDIUM BONUS'
-Əks halda → 'LOW BONUS'
-
-Bonus – window function:
-Hər department-də salary üzrə sıralama (RANK() və ya ROW_NUMBER())
-
-Ən yüksək maaş 1-ci sırada olsun */
+USE RealCompanyDB;
 
 select 
 	e.employee_id,
@@ -89,6 +70,7 @@ select
 	e.department_id,
 	eb.total_bouns,
     pc.pro_count,
+
     eb.avg_bouns,
 
 	case 
