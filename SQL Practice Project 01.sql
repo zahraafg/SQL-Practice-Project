@@ -1,30 +1,6 @@
-﻿USE RealCompanyDB;
+-- Analyze employees per department: count, active projects, and salary status
 
-/* 🧩 RealCompanyDB – SQL Practice Project
-
-Mövzu: Employee & Department Analizi
-
-🎯 Tapşırıq
-
-RealCompanyDB bazasından istifadə edərək elə bir sorğu yaz ki:
-
-Hər departament üzrə işçilərin sayı (employee count)
-
-Hər departamentdə aktiv layihədə çalışan işçilərin sayı
-
-Hər işçinin maaşı ilə departament üzrə orta maaşı göstərmək
-
-CASE ilə maaşı statuslandırmaq:
-
-maaş > 1.5 * ortalama → 'HIGH'
-
-maaş > ortalama → 'ABOVE_AVG'
-
-əks halda → 'NORMAL'
-
-Yalnız 3-dən çox işçisi olan departamentlər göstərilsin
-
-Nəticəni department_name, sonra salary DESC sıralamaq */
+USE RealCompanyDB;
 
 select 
 	e.department_id,
@@ -116,6 +92,7 @@ group by department_id
 on e.department_id = t.department_id
 where dc.emp_count >= 3
 order by d.department_name, e.salary desc;
+
 
 
 
